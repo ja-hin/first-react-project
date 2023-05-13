@@ -1,5 +1,7 @@
+import React from 'react';
 import Expenses from './components/Expense'
-function App() {
+import NewExpense from './components/NewExpense/NewExpense';
+const App=()=> {
   const expenses = [
     {
       id: "e1",
@@ -24,11 +26,14 @@ function App() {
       date: new Date(2021, 5, 8),
     },
   ];
+  const sum=(a,b)=>{
+    return console.log(a+b)
+  }
 
   return (
     <div>
-      <h2>Let's get started</h2>
-      <Expenses items = {expenses}/>
+      <NewExpense/>
+      <Expenses items = {expenses} sum={sum}/>
     </div>
   );
 }

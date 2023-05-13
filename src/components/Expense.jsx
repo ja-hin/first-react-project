@@ -2,7 +2,8 @@ import ExpenseItem from './ExpenseItem';
 import Card from './Card';
 import './Expense.css';
 
-function Expenses(props) {
+const Expenses=(props)=> {
+  props.sum(3,5)
   return (
     <>
      <Card className="expenses">
