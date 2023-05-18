@@ -4,13 +4,18 @@ import ExpenseFilter from './ExpenseFilter';
 import './Expense.css';
 import ExpensesList from './ExpensesList';
 
-const Expenses=(props)=> {
-  const[filteredYear, setFilteredYear]= useState('2020');
+const Expenses=({items})=> {
+  const[filteredYear, setFilteredYear]= useState('ALL');
   const filterChangeHandler=(selectedYear)=>{
     setFilteredYear(selectedYear);
   };
-  const filteredExpenses=props.items.filter(expense=>{
-    return expense.date.getFullYear().toString()===filteredYear
+  const filteredExpenses=items.filter(expense=>{
+    if(filteredYear==='ALL'){
+      return true 
+    }else{
+
+      return expense.date.getFullYear().toString()===filteredYear
+    }
   })
 
   return (
